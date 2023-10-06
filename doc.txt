@@ -1,0 +1,3 @@
+name song
+find music (tabs, sheet notes) for guitar and lyrics (if yes + lyrics else no)
+history

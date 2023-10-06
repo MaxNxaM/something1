@@ -1,0 +1,3 @@
+interface LyricsProvider {
+    String getLyrics();
+}
