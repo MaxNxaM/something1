@@ -1,3 +1,5 @@
+package edu.khai.lab2;
+
 class GuitarTabsSong extends Song {
     private String guitarTabs;
 

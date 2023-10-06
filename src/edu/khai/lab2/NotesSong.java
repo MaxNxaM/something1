@@ -1,3 +1,5 @@
+package edu.khai.lab2;
+
 class NotesSong extends Song implements LyricsProvider {
     private String musicalNotes;
     private String lyrics;
