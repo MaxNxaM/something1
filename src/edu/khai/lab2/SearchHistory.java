@@ -1,3 +1,5 @@
+package edu.khai.lab2;
+
 class SearchHistory {
     private String[] songsSearched;
     private int index;

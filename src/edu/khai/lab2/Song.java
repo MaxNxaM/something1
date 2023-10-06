@@ -1,3 +1,5 @@
+package edu.khai.lab2;
+
 abstract class Song {
     protected String title;
     protected String artist;

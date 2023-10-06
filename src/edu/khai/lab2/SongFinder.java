@@ -1,3 +1,5 @@
+package edu.khai.lab2;
+
 public class SongFinder {
     public static void main(String[] args) {
         SearchHistory history = new SearchHistory();

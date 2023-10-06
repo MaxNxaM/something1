@@ -1,3 +1,5 @@
+package edu.khai.lab2;
+
 class Main {
     String name;
 
