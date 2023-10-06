@@ -9,6 +9,6 @@ class Main {
 //        int name;
 //        main song;
 //        song = new main("Untitled");
-        System.out.println("Hello world");
+        System.out.println("something else");
     }
 }
