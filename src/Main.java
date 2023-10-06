@@ -6,9 +6,7 @@ class Main {
     }
 
     public static void main(String[] args) {
-//        int name;
-//        main song;
-//        song = new main("Untitled");
-        System.out.println("something else");
+        String name = "song";
+        System.out.println("something else" + name);
     }
 }
