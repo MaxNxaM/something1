@@ -6,7 +6,8 @@ public class SongFinder {
 
         NotesSong mySong = new NotesSong("Пісня1", "Виконавець1", "Ноти1", "Текст пісні 1");
         GuitarTabsSong anotherSong = new GuitarTabsSong("Пісня2", "Виконавець2", "Табулатура2");
-
+        boolean areSongsEqual = mySong.equals(anotherSong);
+        System.out.println("Чи однакові пісні " + mySong + " та " + anotherSong + " " + areSongsEqual);
         // Пошук пісні:
         history.addSongToHistory(mySong.title);
         mySong.displaySongInfo();
@@ -23,5 +24,9 @@ public class SongFinder {
 
         // Вивід історії пошуку
         history.displayHistory();
+
+        NotesSong anotherNotesSong = new NotesSong("Пісня1", "Виконавець1", "Ноти1", "Текст пісні 1");
+        System.out.println("Чи однакові пісні? " + mySong);
+
     }
 }
