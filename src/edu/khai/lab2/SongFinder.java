@@ -1,25 +1,33 @@
 package edu.khai.lab2;
 
+import java.util.Objects;
+
 public class SongFinder {
     public static void main(String[] args) {
-        SearchHistory history = new SearchHistory();
+        try {
+            SearchHistory history = new SearchHistory();
 
-        Song mySong = new NotesSong("Пісня1", "Виконавець1", "Ноти1", "Текст пісні 1");
-        Song anotherSong = new GuitarTabsSong("Пісня2", "Виконавець2", "Табулатура2");
+            Song mySong = new NotesSong("Пісня1", "Виконавець1", "Ноти1", "Текст пісні 1");
+            Song anotherSong = new GuitarTabsSong("Пісня2", "Виконавець2", "Табулатура2");
 
-        boolean areSongsEqual = mySong.equals(anotherSong);
-        System.out.println("Чи однакові пісні " + mySong + " та " + anotherSong + "? " + areSongsEqual);
+            boolean areSongsEqual = mySong.equals(anotherSong);
+            System.out.println("Чи однакові пісні " + mySong + " та " + anotherSong + "? " + areSongsEqual);
 
-        history.addSongToHistory(mySong.toString());
-        System.out.println(mySong);
+            history.addSongToHistory(mySong.toString());
+            System.out.println(mySong);
 
-        System.out.println("--------------------");
+            System.out.println("--------------------");
 
-        history.addSongToHistory(anotherSong.toString());
-        System.out.println(anotherSong);
+            history.addSongToHistory(anotherSong.toString());
+            System.out.println(anotherSong);
 
-        System.out.println("--------------------");
+            System.out.println("--------------------");
 
-        history.displayHistory();
+            history.displayHistory();
+        } catch (NullPointerException e) {
+            System.err.println("Помилка: " + e.getMessage());
+        } catch (InvalidSongException e) {
+            System.err.println("Неправильна пісня: " + e.getMessage());
+        }
     }
 }

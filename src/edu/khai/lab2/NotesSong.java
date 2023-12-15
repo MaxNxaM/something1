@@ -1,22 +1,37 @@
 package edu.khai.lab2;
 
-class NotesSong extends Song implements LyricsProvider {
-    private String musicalNotes;
+public class NotesSong extends Song implements LyricsProvider {
+    private String notes;
     private String lyrics;
 
-    NotesSong(String title, String artist, String musicalNotes, String lyrics) {
+    NotesSong(String title, String artist, String notes, String lyrics) throws InvalidSongException {
         super(title, artist);
-        this.musicalNotes = musicalNotes;
+
+        if (notes == null || notes.isEmpty()) {
+            throw new InvalidSongException("notes не може бути null або порожнім");
+        }
+
+        this.notes = notes;
         this.lyrics = lyrics;
     }
 
     @Override
-    String getMusicalNotation() {
-        return musicalNotes;
+    String getMusicalNotation() throws InvalidSongException {
+        if (notes == null || notes.isEmpty()) {
+            throw new InvalidSongException("notes не може бути null або порожнім");
+        }
+        return notes;
     }
 
     @Override
     public String getLyrics() {
         return lyrics;
+    }
+
+    @Override
+    void displaySongInfo() {
+        super.displaySongInfo();
+        System.out.println("Ноти: " + notes);
+        System.out.println("Текст пісні: " + lyrics);
     }
 }

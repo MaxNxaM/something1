@@ -5,7 +5,7 @@ class SearchHistory {
     private int index;
 
     SearchHistory() {
-        songsSearched = new String[10]; // Припустимо, максимальний розмір історії - 10 пісень
+        songsSearched = new String[10];
         index = 0;
     }
 
@@ -20,9 +20,13 @@ class SearchHistory {
     }
 
     void displayHistory() {
-        System.out.println("Історія пошуку:");
-        for (int i = 0; i < index; i++) {
-            System.out.println(songsSearched[i]);
+        try {
+            System.out.println("Історія пошуку:");
+            for (int i = 0; i < index; i++) {
+                System.out.println(songsSearched[i]);
+            }
+        } finally {
+            System.out.println("Завершення відображення історії.");
         }
     }
 }

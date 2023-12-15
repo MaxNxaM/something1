@@ -33,12 +33,10 @@ abstract class Song {
                 '}';
     }
 
-
-    abstract String getMusicalNotation();
+    abstract String getMusicalNotation() throws InvalidSongException;
 
     void displaySongInfo() {
         System.out.println("Виконавець: " + artist);
         System.out.println("Назва пісні: " + title);
-
     }
 }
