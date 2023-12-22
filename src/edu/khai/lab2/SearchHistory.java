@@ -1,32 +1,33 @@
 package edu.khai.lab2;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 class SearchHistory {
-    private String[] songsSearched;
-    private int index;
+    // Додано приватне поле з колекцією (Map)
+    private Map<String, LocalDateTime> songsSearched;
 
     SearchHistory() {
-        songsSearched = new String[10];
-        index = 0;
+        // Ініціалізація колекції в конструкторі (використовуючи HashMap)
+        songsSearched = new HashMap<>();
     }
 
+    // Метод додавання пісні до колекції
     void addSongToHistory(String songTitle) {
-        if (index < songsSearched.length) {
-            songsSearched[index] = songTitle;
-            System.out.println("Пісня " + songTitle + " додана до історії пошуку.");
-            index++;
-        } else {
-            System.out.println("Історія пошуку заповнена! Пісня " + songTitle + " не була додана.");
-        }
+        // Додавання назви пісні та дати створення до Map
+        songsSearched.put(songTitle, LocalDateTime.now());
     }
 
+    // Метод отримання дати створення пісні з колекції
+    LocalDateTime getCreationDate(String songTitle) {
+        return songsSearched.get(songTitle);
+    }
+
+    // Метод виведення історії
     void displayHistory() {
-        try {
-            System.out.println("Історія пошуку:");
-            for (int i = 0; i < index; i++) {
-                System.out.println(songsSearched[i]);
-            }
-        } finally {
-            System.out.println("Завершення відображення історії.");
+        System.out.println("Search History:");
+        for (Map.Entry<String, LocalDateTime> entry : songsSearched.entrySet()) {
+            System.out.println("Song: " + entry.getKey() + ", Creation Date: " + entry.getValue());
         }
     }
 }
