@@ -12,7 +12,8 @@ class SearchHistory {
     }
 
     void addSongToHistory(String songTitle) {
-        songsSearched.put(songTitle, LocalDateTime.now());
+        LocalDateTime creationDate = LocalDateTime.now();
+        songsSearched.put(songTitle, creationDate);
     }
 
     LocalDateTime getCreationDate(String songTitle) {
@@ -48,5 +49,9 @@ class SearchHistory {
 
         // Виведення історії
         history.displayHistory();
+    }
+
+    void addSongToHistory(String songTitle, LocalDateTime creationDate) {
+        songsSearched.put(songTitle, creationDate);
     }
 }

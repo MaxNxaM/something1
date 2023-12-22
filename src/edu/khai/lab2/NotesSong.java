@@ -1,6 +1,6 @@
 package edu.khai.lab2;
 
-public class NotesSong extends Song implements LyricsProvider {
+class NotesSong extends Song implements LyricsProvider {
     private String notes;
     private String lyrics;
 
@@ -15,11 +15,10 @@ public class NotesSong extends Song implements LyricsProvider {
         this.lyrics = lyrics;
     }
 
+    // Видалено throws InvalidSongException з підпису методу
     @Override
-    String getMusicalNotation() throws InvalidSongException {
-        if (notes == null || notes.isEmpty()) {
-            throw new InvalidSongException("notes не може бути null або порожнім");
-        }
+    String getMusicalNotation() {
+        // Залишити код методу без змін, або внести необхідні зміни
         return notes;
     }
 
