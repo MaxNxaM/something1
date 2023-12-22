@@ -9,20 +9,20 @@ public class ObjectToFileExample {
             Song song1 = new NotesSong("Пісня1", "Виконавець1", "Ноти1", "Текст пісні 1");
             Song song2 = new GuitarTabsSong("Пісня2", "Виконавець2", "Табулатура2");
 
-            // Output objects to a file
-            saveObjectsToFile("objects.dat", song1, song2);
+            // Output objects to a text file
+            saveObjectsToFile("objects.txt", song1, song2);
 
             // Read objects from the file and display them
-            readAndDisplayObjectsFromFile("objects.dat");
+            readAndDisplayObjectsFromFile("objects.txt");
         } catch (InvalidSongException e) {
             e.printStackTrace();
         }
     }
 
     private static void saveObjectsToFile(String filename, Song... songs) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)))) {
             for (Song song : songs) {
-                oos.writeObject(song);
+                writer.println(song.toString());
             }
             System.out.println("Objects saved to file: " + filename);
         } catch (IOException e) {
@@ -31,20 +31,13 @@ public class ObjectToFileExample {
     }
 
     private static void readAndDisplayObjectsFromFile(String filename) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             System.out.println("Objects read from file: " + filename);
-            while (true) {
-                try {
-                    Object obj = ois.readObject();
-                    if (obj instanceof Song) {
-                        Song song = (Song) obj;
-                        System.out.println(song);
-                    }
-                } catch (EOFException e) {
-                    break; // End of file reached
-                }
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
             }
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

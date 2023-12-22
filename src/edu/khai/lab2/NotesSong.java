@@ -1,6 +1,8 @@
 package edu.khai.lab2;
 
-class NotesSong extends Song implements LyricsProvider {
+import java.io.Serializable;
+
+class NotesSong extends Song implements LyricsProvider, Serializable {
     private String notes;
     private String lyrics;
 
