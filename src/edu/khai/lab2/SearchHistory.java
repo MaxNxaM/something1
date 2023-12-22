@@ -23,6 +23,21 @@ class SearchHistory {
         return songsSearched.get(songTitle);
     }
 
+    // Метод перевірки наявності пісні у колекції
+    boolean containsSong(String songTitle) {
+        return songsSearched.containsKey(songTitle);
+    }
+
+    // Метод видалення пісні з колекції
+    void removeSongFromHistory(String songTitle) {
+        songsSearched.remove(songTitle);
+    }
+
+    // Метод очищення історії
+    void clearHistory() {
+        songsSearched.clear();
+    }
+
     // Метод виведення історії
     void displayHistory() {
         System.out.println("Search History:");
